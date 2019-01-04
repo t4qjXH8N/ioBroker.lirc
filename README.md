@@ -15,7 +15,7 @@ This is an [ioBroker](https://github.com/ioBroker/ioBroker) to control infrared 
 Setup the LIRC daemon for listening. 
 
 ## Donation
-If this project helped you reduce time to develop, you can give me a cup of coffee or a bottle of beer via PayPal(chvorholt@gmail.com) :-)  
+If this project helped you to reduce developing time, you can give me a cup of coffee or a bottle of beer via PayPal(chvorholt@gmail.com) :-)  
 
 ## Known Issues
 - channels (remotes) are not removed properly
