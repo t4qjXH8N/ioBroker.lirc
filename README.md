@@ -22,6 +22,7 @@ If this project helped you to reduce developing time, you can give me a cup of c
 
 ## Changelog
 #### 0.0.1 (04-Jan-2019)
+- basic features implemented 
 
 ## License
 The MIT License (MIT)
