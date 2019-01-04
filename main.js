@@ -9,7 +9,7 @@ const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.lirc.0
 const adapter = new utils.Adapter('lirc');
-const lirc = require('lirc-client');  // for opening a socket listener
+const lirc_client = require('lirc-client');  // for opening a socket listener
 
 let lirc_instances = {};  // holds instances for the devices
 
@@ -64,7 +64,7 @@ function main() {
       let id = ip_to_id(adapter.config.devices[i].ip, adapter.config.devices[i].port);
       if (!lirc_instances.hasOwnProperty(id)) {
         // create instance
-        lirc_instances[id] = new lirc({
+        lirc_instances[id] = new lirc_client({
           host: adapter.config.devices[i].ip,
           port: parseInt(adapter.config.devices[i].port)
         });
@@ -201,7 +201,7 @@ function createBasicStates(device, callback) {
   });
 
   // get the states
-  let clirc = new lirc({
+  let clirc = new lirc_client({
     host: device.ip,
     port: parseInt(device.port)
   });

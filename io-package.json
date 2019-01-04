@@ -1,6 +1,6 @@
 {
     "common": {
-        "name":                     "lirc",
+        "name":                     "LIRC",
         "version":                  "0.0.1",
         "news": {
             "0.0.1": {
@@ -16,20 +16,20 @@
             }
         },
         "license":                  "MIT",
-        "title":                    "lirc",
+        "title":                    "LIRC (Linux Infrared Remote Control)",
         "authors": [
           "Christian Vorholt <chvorholt@gmail.com>"
         ],
         "titleLang": {
-            "en": "LIRC",
-            "de": "LIRC",
-            "ru": "LIRC",
-            "pt": "LIRC",
-            "nl": "LIRC",
-            "fr": "LIRC",
-            "it": "LIRC",
-            "es": "LIRC",
-            "pl": "LIRC"
+            "en": "LIRC (Linux Infrared Remote Control)",
+            "de": "LIRC (Linux Infrared Remote Control)",
+            "ru": "LIRC (Linux Infrared Remote Control)",
+            "pt": "LIRC (Linux Infrared Remote Control)",
+            "nl": "LIRC (Linux Infrared Remote Control)",
+            "fr": "LIRC (Linux Infrared Remote Control)",
+            "it": "LIRC (Linux Infrared Remote Control)",
+            "es": "LIRC (Linux Infrared Remote Control)",
+            "pl": "LIRC (Linux Infrared Remote Control)"
         },
         "desc": {
             "en": "ioBroker-adapter for LIRC (Linux Infrared Remote Control)",
