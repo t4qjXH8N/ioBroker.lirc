@@ -208,7 +208,7 @@ function createBasicStates(device, callback) {
 
   clirc.on('connect', () => {
     clirc.send('VERSION').then(res => {
-      adapter.log.info('Successfully connected to LIRC version ', res[0]);
+      adapter.log.info('Successfully connected to LIRC version ' + res[0] + '.');
     })
     .catch((err) => {
       adapter.log.error('Lirc error on connection! ' + err);
