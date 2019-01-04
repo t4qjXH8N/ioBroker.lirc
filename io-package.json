@@ -1,0 +1,66 @@
+{
+    "common": {
+        "name":                     "lirc",
+        "version":                  "0.0.1",
+        "news": {
+            "0.0.1": {
+              "en": "initial adapter",
+              "de": "Anfangsadapter",
+              "ru": "первоначальный адаптер",
+              "pt": "adaptador inicial",
+              "nl": "eerste adapter",
+              "fr": "adaptateur initial",
+              "it": "adattatore iniziale",
+              "es": "adaptador inicial",
+              "pl": "początkowy adapter"
+            }
+        },
+        "license":                  "MIT",
+        "title":                    "lirc",
+        "authors": [
+          "Christian Vorholt <chvorholt@gmail.com>"
+        ],
+        "titleLang": {
+            "en": "LIRC",
+            "de": "LIRC",
+            "ru": "LIRC",
+            "pt": "LIRC",
+            "nl": "LIRC",
+            "fr": "LIRC",
+            "it": "LIRC",
+            "es": "LIRC",
+            "pl": "LIRC"
+        },
+        "desc": {
+            "en": "ioBroker-adapter for LIRC (Linux Infrared Remote Control)",
+            "de": "ioBroker-Adapter für LIRC (Linux Infrarot-Fernbedienung)",
+            "ru": "ioBroker-адаптер для LIRC (инфракрасный пульт дистанционного управления Linux)",
+            "pt": "ioBroker-adapter para LIRC (Controle Remoto Infravermelho para Linux)",
+            "nl": "ioBroker-adapter voor LIRC (Linux Infrared Remote Control)",
+            "fr": "ioBroker-adapter pour LIRC (télécommande infrarouge Linux)",
+            "it": "ioBroker-adattatore per LIRC (Linux Infrared Remote Control)",
+            "es": "Adaptador ioBroker para LIRC (control remoto por infrarrojos de Linux)",
+            "pl": "Adapter ioBroker dla LIRC (Pilot zdalnego sterowania na podczerwień Linux)"
+        },
+        "platform":                 "Javascript/Node.js",
+        "mode":                     "daemon",
+        "icon":                     "lirc.png",
+        "enabled":                  false,
+        "stopBeforeUpdate":         true,
+        "stopTimeout":              3000,
+        "extIcon":                  "https://raw.githubusercontent.com/t4qjXH8N/ioBroker.lirc/master/admin/lirc.png",
+        "keywords":                 ["LIRC", "linux infrared remote control", "remote control"],
+        "readme":                   "https://github.com/t4qjXH8N/ioBroker.lirc/blob/master/README.md",
+        "loglevel":                 "info",
+        "type":                     "hardware",
+        "materialize":              true,
+        "restartAdapters":          []
+    },
+    "native": {
+      "devices": [
+        {"ip" : "0.0.0.0", "port" : "8765", "remote": "", "room": ""}
+        ]
+    },
+    "objects": [],
+    "instanceObjects": []
+}

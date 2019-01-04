@@ -1,0 +1,4 @@
+/admin/i18n
+/.idea
+/node_modules
+package-lock.json

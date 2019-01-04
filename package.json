@@ -1,0 +1,36 @@
+{
+  "name": "iobroker.lirc",
+  "version": "0.0.1",
+  "description": "Lirc Adapter",
+  "author": {
+    "name": "Christian Vorholt",
+    "email": "chvorholt@gmail.com"
+  },
+  "homepage": "https://github.com/t4qjXH8N/ioBroker.lirc",
+  "readme": "https://github.com/t4qjXH8N/ioBroker.lirc/blob/master/README.md",
+  "keywords": [
+    "ioBroker",
+    "lirc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t4qjXH8N/ioBroker.lirc.git"
+  },
+  "dependencies": {
+    "jsonpath": "^1.0.0",
+    "lirc-client": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2"
+  },
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/t4qjXH8N/ioBroker.lirc/issues"
+  },
+  "main": "main.js",
+  "license": "MIT"
+}
