@@ -8,7 +8,7 @@ const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.lirc.0
-const adapter = utils.adapter('lirc');
+const adapter = new utils.Adapter('lirc');
 const lirc = require('lirc-client');  // for opening a socket listener
 
 let lirc_instances = {};  // holds instances for the devices
