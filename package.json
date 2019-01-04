@@ -17,7 +17,6 @@
     "url": "https://github.com/t4qjXH8N/ioBroker.lirc.git"
   },
   "dependencies": {
-    "jsonpath": "^1.0.0",
     "lirc-client": "^2.0.0"
   },
   "devDependencies": {
