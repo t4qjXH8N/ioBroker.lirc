@@ -12,7 +12,7 @@ ioBroker adapter for controlling remote through LIRC daemon
 This is an [ioBroker](https://github.com/ioBroker/ioBroker) to control infrared remotes through an existing [LIRC](http://www.lirc.org/) daemon. 
 
 ## Setup
-Setup the LIRC daemon for listening. 
+Setup the LIRC daemon for listening on network. 
 
 ## Donation
 If this project helped you to reduce developing time, you can give me a cup of coffee or a bottle of beer via PayPal(chvorholt@gmail.com) :-)  
