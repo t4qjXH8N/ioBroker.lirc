@@ -27,6 +27,9 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "bugs": {
     "url": "https://github.com/t4qjXH8N/ioBroker.lirc/issues"
   },
