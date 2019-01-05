@@ -74,7 +74,7 @@ function main() {
 
     // create LIRC instances for each device
     for (let i=0;i<adapter.config.devices.length;i++) {
-      let id = ip_to_id(adapter.config.devices[i].ip, adapter.config.devices[i].port);
+      const id = ip_to_id(adapter.config.devices[i].ip, adapter.config.devices[i].port);
       if (!lirc_instances.hasOwnProperty(id)) {
         // create instance
         lirc_instances[id] = new lirc_client({
@@ -89,10 +89,9 @@ function main() {
 // sync config with database
 function syncConfig(callback) {
   function is_dev_in_config(device, device_list) {
-    let id = id_to_ip(device._id.split('.').slice(-1)[0]);
-
-    let ip = id.split(':')[0];
-    let port = id.split(':')[1];
+    const id = id_to_ip(device._id.split('.').slice(-1)[0]);
+    const ip = id.split(':')[0];
+    const port = id.split(':')[1];
 
     for (let i=0;i<device_list.length;i++) {
       if(ip === device_list[i].ip
@@ -120,7 +119,7 @@ function syncConfig(callback) {
   function is_channel_in_db(channel, channel_list) {
     for (let _chan in channel_list) {
       if (!channel_list.hasOwnProperty(_chan)) continue;
-      let chan = channel_list[_chan];
+      const chan = channel_list[_chan];
 
       if(channel.remote === chan.common.name) {
         return true;
@@ -170,6 +169,39 @@ function syncConfig(callback) {
     }
   });
 
+  // check operating mode, since the operating mode changes the role of the states
+  for(let i=0;i<adapter.config.devices.length;i++) {
+    const cdev = adapter.config.devices[i];
+    const opmode = get_operating_mode(ip_to_id(cdev.ip, cdev.port), cdev.remote);
+
+    // get states for the given device
+    adapter.getForeignObjects(
+      adapter_db_prefix + ip_to_id(cdev.ip, cdev.port)
+      + '.' + cdev.remote + '.*', 'state', (err, _states) => {
+
+        for(let cstate in _states) {
+          if(!_states.hasOwnProperty(cstate)) continue;
+
+          switch(opmode) {
+            case 'switch':
+              adapter.getObject(_states[cstate]._id, (err, obj) => {
+                obj.common.role = 'switch';
+
+                adapter.setObject(obj._id, obj);
+              });
+              break;
+            case 'button':
+              adapter.getObject(_states[cstate]._id, (err, obj) => {
+                obj.common.role = 'button';
+
+                adapter.setObject(obj._id, obj);
+              });
+              break;
+          }
+        }
+      });
+  }
+
   if(callback) callback(false);
 }
 
@@ -181,7 +213,7 @@ function createBasicStates(device, callback) {
     + device.ip + ':' + device.port + ', remote ' + device.remote);
 
   let obj = {
-    _id: adapter_db_prefix + ip_to_id(device.ip, device.port),
+    _id: ip_to_id(device.ip, device.port),
     type: 'device',
     common: {
       name: device.ip + ':' + device.port
@@ -194,7 +226,7 @@ function createBasicStates(device, callback) {
 
   // create channel
   let obj_ch = {
-    _id: adapter_db_prefix + cleanid(ip_to_id(device.ip, device.port) + '.' + device.remote),
+    _id: cleanid(ip_to_id(device.ip, device.port) + '.' + device.remote),
     type: 'channel',
     common: {
       name: device.remote
@@ -229,7 +261,7 @@ function createBasicStates(device, callback) {
 
     clirc.list(device.remote).then(res => {
       // go through the commands and create the corresponding states
-      for (let i=0;i<res.length;i++) {
+      for(let i=0;i<res.length;i++) {
         if (res[i].split(' ').length < 2) {
           adapter.log.warn('Invalid command ' + device.remote.res[i]);
           continue;
@@ -290,7 +322,7 @@ function cleanid(id) {
 function get_operating_mode(devid, remote) {
   let ipport = id_to_ip_port(devid);
 
-  for (let i=0;i<adapter.config.devices.length;i++) {
+  for(let i=0;i<adapter.config.devices.length;i++) {
     if(adapter.config.devices[i].ip === ipport.ip
       && adapter.config.devices[i].port === ipport.port
       && adapter.config.devices[i].remote === remote) {
