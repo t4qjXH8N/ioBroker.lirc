@@ -1,8 +1,19 @@
 {
     "common": {
         "name":                     "LIRC",
-        "version":                  "0.0.1",
+        "version":                  "0.1.0",
         "news": {
+          "0.1.0": {
+            "en": "Remote can be controlled via switch or button.",
+            "de": "Die Fernbedienung kann über einen Schalter oder eine Taste gesteuert werden.",
+            "ru": "Пульт дистанционного управления может управляться с помощью переключателя или кнопки.",
+            "pt": "O controle remoto pode ser controlado via interruptor ou botão.",
+            "nl": "Afstandsbediening kan worden bediend via schakelaar of knop.",
+            "fr": "La télécommande peut être contrôlée via un commutateur ou un bouton.",
+            "it": "Il telecomando può essere controllato tramite interruttore o pulsante.",
+            "es": "El control remoto se puede controlar mediante un interruptor o un botón.",
+            "pl": "Zdalnym można sterować za pomocą przełącznika lub przycisku."
+          },
             "0.0.1": {
               "en": "initial adapter",
               "de": "Anfangsadapter",
@@ -58,7 +69,7 @@
     },
     "native": {
       "devices": [
-        {"ip" : "0.0.0.0", "port" : "8765", "remote": "", "room": ""}
+        {"ip" : "0.0.0.0", "port" : "8765", "remote": "", "room": "", "operating_mode": "switch"}
         ]
     },
     "objects": [],

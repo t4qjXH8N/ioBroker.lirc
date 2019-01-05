@@ -12,7 +12,6 @@ const adapter = new utils.Adapter('lirc');
 const lirc_client = require('lirc-client');  // for opening a socket listener
 
 let lirc_instances = {};  // holds instances for the devices
-
 let adapter_db_prefix;  // prefix of the adapter in the db
 
 // triggered when the adapter is installed
@@ -29,17 +28,31 @@ adapter.on('unload', function (callback) {
 adapter.on('stateChange', function (id, state) {
   adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
 
-  if(state.val) {
-    let devid = id.split('.').slice(2, 3)[0];
-    let remote = id.split('.').slice(-2)[0];
-    let key = id.split('.').slice(-1)[0];
+  // get operating mode
+  let devid = id.split('.').slice(2, 3)[0];  // the device (ip + port)
+  let remote = id.split('.').slice(-2)[0];  // the remote e.g. Philips
+  let key = id.split('.').slice(-1)[0];  // the pressed key e.g. power
 
-    lirc_instances[devid].sendOnce(remote, key).catch(err => {
-      adapter.log.error('Could not send key ' + key + ' on remote '
-                        + remote + ' from device ' + devid + ', error ' + err);
-    });
+  let op_mode = get_operating_mode(devid, remote);  // operating mode e.g. switch or button
 
-    adapter.setState(id, false, true);  // reset button
+  switch(op_mode) {
+    case 'switch':
+      lirc_instances[devid].sendOnce(remote, key).catch((err) => {
+        adapter.log.error('Could not send key ' + key + ' on remote '
+          + remote + ' from device ' + devid + ', error ' + err);
+      });
+      break;
+    case 'button':
+      if(state.val) {
+        lirc_instances[devid].sendOnce(remote, key).then(() => {
+          adapter.setState(id, false, true);  // reset button
+        })
+        .catch((err) => {
+          adapter.log.error('Could not send key ' + key + ' on remote '
+            + remote + ' from device ' + devid + ', error ' + err);
+        });
+      }
+      break;
   }
 });
 
@@ -271,4 +284,18 @@ function id_to_ip_port(id) {
 // return valid state ids only
 function cleanid(id) {
   return id.replace(/[!\*?\[\]\"\']/ig, '_');
+}
+
+// returns the operating mode (e.g. switch or button)
+function get_operating_mode(devid, remote) {
+  let ipport = id_to_ip_port(devid);
+
+  for (let i=0;i<adapter.config.devices.length;i++) {
+    if(adapter.config.devices[i].ip === ipport.ip
+      && adapter.config.devices[i].port === ipport.port
+      && adapter.config.devices[i].remote === remote) {
+      return adapter.config.devices[i].operating_mode;
+    }
+  }
+  return false;
 }

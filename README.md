@@ -21,6 +21,9 @@ If this project helped you to reduce developing time, you can give me a cup of c
 - channels (remotes) are not removed properly
 
 ## Changelog
+#### 0.1.0 (05-Jan-2019)
+- keys can be triggered as switches or buttons 
+
 #### 0.0.1 (04-Jan-2019)
 - basic features implemented 
 

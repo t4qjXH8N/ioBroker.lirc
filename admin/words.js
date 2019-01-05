@@ -35,6 +35,39 @@ systemDictionary = {
     "es": "Remoto",
     "pl": "Zdalny"
   },
+  "switch": {
+    "en": "switch",
+    "de": "Schalter",
+    "ru": "переключатель",
+    "pt": "interruptor",
+    "nl": "schakelaar",
+    "fr": "commutateur",
+    "it": "interruttore",
+    "es": "cambiar",
+    "pl": "przełącznik"
+  },
+  "button": {
+    "en": "button",
+    "de": "Taster",
+    "ru": "кнопка",
+    "pt": "botão",
+    "nl": "knop",
+    "fr": "bouton",
+    "it": "pulsante",
+    "es": "botón",
+    "pl": "przycisk"
+  },
+  "operating_mode": {
+    "en": "Operating mode",
+    "de": "Betriebsart",
+    "ru": "рабочий режим",
+    "pt": "modo operacional",
+    "nl": "bedrijfsmodus",
+    "fr": "mode de fonctionnement",
+    "it": "modalità operativa",
+    "es": "modo operativo",
+    "pl": "Tryb pracy"
+  },
   "room": {
     "en": "Room",
     "de": "Zimmer",
