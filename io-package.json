@@ -1,6 +1,6 @@
 {
     "common": {
-        "name":                     "LIRC",
+        "name":                     "lirc",
         "version":                  "0.1.0",
         "news": {
           "0.1.0": {
