@@ -7,7 +7,7 @@ ioBroker adapter for controlling remote through LIRC daemon
 [![NPM](https://nodei.co/npm/iobroker.lirc.png?downloads=true)](https://nodei.co/npm/iobroker.lirc/)
 
 [![Build Status](https://travis-ci.org/t4qjXH8N/ioBroker.lirc.svg?branch=master)](https://travis-ci.org/t4qjXH8N/ioBroker.lirc)
-[![Build status](https://ci.appveyor.com/api/projects/status/nm7ejtpcleola8vl/branch/master?svg=true)](https://ci.appveyor.com/project/t4qjXH8N/iobroker-lirc/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/1ab8nnya7u87yr9a/branch/master?svg=true)](https://ci.appveyor.com/project/t4qjXH8N/iobroker-lirc/branch/master)
 
 This is an [ioBroker](https://github.com/ioBroker/ioBroker) to control infrared remotes through an existing [LIRC](http://www.lirc.org/) daemon. 
 
